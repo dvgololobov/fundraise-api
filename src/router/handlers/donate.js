@@ -6,17 +6,12 @@ module.exports = {
     }
     if (donateRequest.amount > 0) {
       const currency = await db.models.Currency.findOne({ code: donateRequest.currency })
-      try {
-        if (currency !== null) {
-          const donate = new db.models.Donate({ amount: +donateRequest.amount, currency: donateRequest.currency, date: new Date() })
-          await donate.save()
-          ctx.body = { ok: true }
-        } else {
-          ctx.throw(400, 'Please use approved currency')
-        }
-      } catch (e) {
-        console.log('POST /donate error', e)
-        ctx.throw(500, 'POST /donate server error')
+      if (currency !== null) {
+        const donate = new db.models.Donate({ amount: donateRequest.amount, currency: donateRequest.currency, date: new Date() })
+        await donate.save()
+        ctx.body = { ok: true }
+      } else {
+        ctx.throw(400, 'Please use approved currency')
       }
     } else {
       ctx.throw(400, '"amount" must be positive')
