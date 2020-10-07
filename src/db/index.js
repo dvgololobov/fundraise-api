@@ -2,10 +2,11 @@ const mongoose = require('mongoose')
 
 module.exports = (host, port, db) => {
   mongoose.connect(`mongodb://${host}:${port}/${db}`, { useNewUrlParser: true, useUnifiedTopology: true })
+
   const Currency = mongoose.model('Currency', require('./models/Currency'))
   const Donate = mongoose.model('Donate', require('./models/Donate'))
 
-  // Defaault currencies
+  // Default currencies
   const currencies = [
     { name: 'US Dollar', code: 'USD', symbol: '$', rate: 1 },
     { name: 'Euro', code: 'EUR', symbol: '€', rate: 0.897597 },

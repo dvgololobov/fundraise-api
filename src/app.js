@@ -4,6 +4,7 @@ const helmet = require('koa-helmet')
 const cors = require('@koa/cors')
 
 const app = new Koa()
+
 const db = require('./db')(process.env.DB_HOST, process.env.DB_PORT, process.env.DB_NAME)
 const router = require('./router')(db)
 
