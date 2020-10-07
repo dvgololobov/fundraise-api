@@ -5,6 +5,6 @@ const handlers = require('./handlers')
 module.exports = (db) => {
   router
     .get('/', (ctx) => handlers.default.main(ctx))
-    .post('/donate', async (ctx) => handlers.donate.addDonate(ctx, db))
+    .post('/donate', (ctx) => handlers.donate.addDonate(ctx, db))
   return router
 }
