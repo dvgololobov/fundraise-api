@@ -1,0 +1,40 @@
+{
+  "name": "fundraise-api",
+  "version": "1.0.0",
+  "description": "Тестовый проект для Fundraise Up. REST API на базе koa и mongodb",
+  "main": "index.js",
+  "scripts": {
+    "devlint": "nodemon ./src/index.js --exec 'npm run lint && node'",
+    "lint": "eslint ./src/",
+    "prod": "node ./src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dvgololobov/fundraise-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dvgololobov/fundraise-api/issues"
+  },
+  "homepage": "https://github.com/dvgololobov/fundraise-api#readme",
+  "dependencies": {
+    "@koa/cors": "^3.1.0",
+    "@koa/router": "^9.4.0",
+    "dotenv": "^8.2.0",
+    "koa": "^2.13.0",
+    "koa-bodyparser": "^4.3.0",
+    "koa-helmet": "^6.0.0",
+    "mongoose": "^5.10.7"
+  },
+  "devDependencies": {
+    "eslint": "^7.10.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1"
+  }
+}
